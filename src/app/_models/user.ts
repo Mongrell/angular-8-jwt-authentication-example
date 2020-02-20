@@ -1,8 +1,12 @@
 ﻿export class User {
     id: number;
-    username: string;
-    password: string;
-    firstName: string;
+    email: string;
+    forenames: string;
     lastName: string;
-    token?: string;
+    jwtViewModel?: JwtViewModel;
+}
+
+export class JwtViewModel {
+  token: string;
+  expiration: Date;
 }
