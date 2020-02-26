@@ -10,3 +10,11 @@ export class JwtViewModel {
   token: string;
   expiration: Date;
 }
+
+export interface IUserRegistraion{
+  Forenames: string;
+  Surname: string;
+  Username: string;
+  Password: string;
+  ConfirmPassword: string;
+}

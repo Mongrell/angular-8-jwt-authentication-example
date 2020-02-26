@@ -1,0 +1,75 @@
+<!-- TODO: Better Design And Color Scheme -->
+<!-- TODO: Validation And Validation Messages -->
+<div class="container">
+    <div class="card">
+        <h5 class="card-header secondary-color white-text text-center py-4"> 
+            <strong>Register</strong>
+        </h5>
+
+        <div class="card-body px-lg-5 pt-0">
+            <form class="text-center"
+                  novalidate
+                  (ngSubmit)="onSubmission()"
+                  [formGroup]="registerForm">
+                <div class="form-row">
+                    <div class="col">
+                        <div class="md-form">
+                            <input type="text"
+                                   id="forenamesId"
+                                   class="form-control"
+                                   formControlName="forenames"/>
+                            <label for="forenamesId">Forenames</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col">
+                        <div class="md-form">
+                            <input type="text"
+                                   id="surnameId"
+                                   class="form-control"
+                                   formControlName="surname"/>
+                            <label for="surnameId">Surname</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col">
+                        <div class="md-form">
+                            <input type="text"
+                                   id="emailId"
+                                   class="form-control"
+                                   formControlName="email"/>
+                            <label for="emailId">Email</label>
+                        </div>
+                    </div>
+                </div>
+                <div formGroupName="passwordGroup">
+                    <div class="md-form">
+                        <input type="password"
+                               id="passwordId"
+                               class="form-control"
+                               formControlName="password"/>
+                        <label for="passwordId">Password</label>
+                    </div>
+                    <div class="md-form">
+                        <input type="password"
+                               id="confirmPasswordId"
+                               class="form-control"
+                               formControlName="confirmPassword"/>
+                        <label for="confirmPasswordId">Confirm Password</label>
+                    </div>
+                </div>
+                <button class="col-10 btn btn-outline-secondary"
+                        type="submit"
+                        [title]="registerForm.valid ? 'Register' : 'Disabled ubtil data is valid'"
+                        [disabled]="!registerForm.valid">
+                    Register
+                </button>
+                <hr />
+                    <p>Already have an account? <a class="btn-sm btn-outline-secondary" routerLink='/login'>Log In</a></p>
+                <hr />
+            </form>
+        </div>
+    </div>
+</div>
