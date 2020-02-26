@@ -3,9 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
-// used to create fake backend
-import { InMemoryWebApiModule } from "angular-in-memory-web-api";
-import { InMemoryDb } from './_helpers';
 
 import { AppComponent } from './app.component';
 import { appRoutingModule } from './app.routing';
