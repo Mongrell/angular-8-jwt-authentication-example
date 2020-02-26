@@ -13,7 +13,7 @@
                 <a class="nav-link" routerLink='/home'>Home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" routerLink='/adverts'>Homes For Sale</a>
+                <a class="nav-link" routerLink='/advertsForSale'>Homes For Sale</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" (click)="sellAHouseClick()">Sell A House</a>
@@ -38,7 +38,7 @@
                     aria-labelledby="userSection">
                     <p>Welcome {{currentUser.forenames.trim().split(' ')[0]}}</p>
                     <hr/>
-                    <a class="dropdown-item" routerLink='/myAdverts'>My Adverts</a>
+                    <a class="dropdown-item" routerLink='/adverts'>My Adverts</a>
                     <a class="dropdown-item" routerLink='/profile'>My Profile</a>
                     <a class="dropdown-item" routerLink='/adverts'>Buy A House</a>
                     <a class="dropdown-item" routerLink='/adverts/0/edit'>Sell A House</a>

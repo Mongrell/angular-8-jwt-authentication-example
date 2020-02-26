@@ -1,0 +1,1 @@
+//TODO: Apply auth guard to all needed components

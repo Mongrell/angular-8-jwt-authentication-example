@@ -1,3 +1,6 @@
+// TODO: Validation For Registration Page
+// TODO: Guard For User Exit Faults
+// TODO: Auto Login And Redirect To My Adverts (Maybe)
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';

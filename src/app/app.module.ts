@@ -14,6 +14,7 @@ import { JwtInterceptor, ErrorInterceptor } from './_helpers';
 import { HomeComponent } from './home';
 import { LoginComponent } from './login';
 import { RegisterComponent } from './register/register.component';
+import { UserAdvertsComponent } from './userAdverts/user-adverts.component';
 
 @NgModule({
     imports: [
@@ -22,13 +23,13 @@ import { RegisterComponent } from './register/register.component';
         HttpClientModule,
         appRoutingModule,
         FormsModule
-        // InMemoryWebApiModule.forRoot(InMemoryDb)
     ],
     declarations: [
         AppComponent,
         HomeComponent,
         LoginComponent,
-        RegisterComponent
+        RegisterComponent,
+        UserAdvertsComponent
     ],
     providers: [
         { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
