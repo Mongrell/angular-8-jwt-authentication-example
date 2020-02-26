@@ -4,7 +4,10 @@ import { Router } from '@angular/router';
 import { AuthenticationService } from './_services';
 import { User } from './_models';
 
-@Component({ selector: 'app', templateUrl: 'app.component.html' })
+@Component({ 
+    selector: 'app',
+    templateUrl: 'app.component.html'
+})
 export class AppComponent {
     currentUser: User;
 
@@ -13,6 +16,12 @@ export class AppComponent {
         private authenticationService: AuthenticationService
     ) {
         this.authenticationService.currentUser.subscribe(x => this.currentUser = x);
+    }
+
+    sellAHouseClick(){
+        if(!this.currentUser) this.router.navigate(['/register']);
+
+        this.router.navigate(['/sellAHouse'])
     }
 
     logout() {

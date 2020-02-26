@@ -4,7 +4,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 // used to create fake backend
-import { fakeBackendProvider } from './_helpers';
+import { InMemoryWebApiModule } from "angular-in-memory-web-api";
+import { InMemoryDb } from './_helpers';
 
 import { AppComponent } from './app.component';
 import { appRoutingModule } from './app.routing';
@@ -18,7 +19,8 @@ import { LoginComponent } from './login';
         BrowserModule,
         ReactiveFormsModule,
         HttpClientModule,
-        appRoutingModule
+        appRoutingModule,
+        // InMemoryWebApiModule.forRoot(InMemoryDb)
     ],
     declarations: [
         AppComponent,
