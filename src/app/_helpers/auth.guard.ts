@@ -1,4 +1,5 @@
-﻿import { Injectable } from '@angular/core';
+﻿// TODO: Add a nice message to show the user they cannot enter this page
+import { Injectable } from '@angular/core';
 import { Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 
 import { AuthenticationService } from '@app/_services';

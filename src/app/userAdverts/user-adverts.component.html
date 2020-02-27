@@ -1,13 +1,14 @@
 <!-- TODO: Get images for the properties -->
 <!-- TODO: Fix Stylings -->
+<!-- TODO: Get Adverts from the API -->
 <div class="container text-center">
     <h1>Below Are All The Adverts You Posted</h1>
     <hr />
-    <div class="card">
+    <div class="card" style="margin: 15px;" *ngFor="let advert of adverts">
         <div class="card-header">
             <div class="row">
-                <h6 class="col">State: Live</h6>
-                <h3 class="col">Some Headline</h3>
+                <h6 class="col">State: {{advert.State}}</h6>
+                <h3 class="col">{{advert.Headline}}</h3>
                 <!-- Action Button -->
                 <button class="btn-md btn-outline-secondary col dropdown-toggle" type="button" data-toggle="dropdown"
                     aria-haspopup="true" aria-expanded="false">Actions</button>
@@ -20,15 +21,15 @@
             </div>
         </div>
         <div class="card-body">
-            <p>Details:<br />Some Details</p>
+            <p>Details:<br />{{advert.Details}}</p>
             <hr />
             <p>
-                Province: South Africa<br />
-                City: Bloemfontein
+                Province: {{advert.Province}}<br />
+                City: {{advert.City}}
             </p>
         </div>
         <div class="card-footer">
-            <p>Price: R120000</p>
+            <p>Price: {{advert.Price | currency:'ZAR':'R':'1.2-2'}}</p>
         </div>
     </div>
     <hr />
