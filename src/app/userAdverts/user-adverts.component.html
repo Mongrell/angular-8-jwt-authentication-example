@@ -1,35 +1,45 @@
 <!-- TODO: Get images for the properties -->
 <!-- TODO: Fix Stylings -->
-<div class="container text-center">
-    <h1>Below Are All The Adverts You Posted</h1>
-    <hr />
-    <div class="card" style="margin: 15px;" *ngFor="let advert of adverts">
-        <div class="card-header">
-            <div class="row">
-                <h6 class="col">State: {{advert.State}}</h6>
-                <h3 class="col">{{advert.Headline}}</h3>
-                <!-- Action Button -->
-                <button class="btn-md btn-outline-secondary col dropdown-toggle" type="button" data-toggle="dropdown"
-                    aria-haspopup="true" aria-expanded="false">Actions</button>
-
-                <div class="dropdown-menu">
-                    <a class="dropdown-item" href="#">Edit</a>
-                    <a class="dropdown-item" href="#">Hide Advert</a>
-                    <a class="dropdown-item" href="#">Delete Advert</a>
-                </div>
+<!-- TODO: Pagination for later stages -->
+<h1 class="text-center">Below Are All The Adverts You Posted</h1>
+<hr />
+<div class="card" style="margin: 15px;" *ngFor="let advert of adverts">
+    <div class="card-header" style="background-color: #6099f0;">
+        <div class="row">
+            <div class="col-sm-4">
+                Status: {{advert.State}}
+            </div>
+            <div class="col-sm">
+                <h3>{{advert.Headline}}</h3>
             </div>
         </div>
-        <div class="card-body">
-            <p>Details:<br />{{advert.Details}}</p>
-            <hr />
-            <p>
-                Province: {{advert.Province}}<br />
-                City: {{advert.City}}
-            </p>
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-sm-12 text-center">
+                Images Will Be Added Here Later
+            </div>
         </div>
-        <div class="card-footer">
-            <p>Price: {{advert.Price | currency:'ZAR':'R':'1.2-2'}}</p>
+        <hr />
+        <div class="row">
+            <div class="col-sm-12">
+                Details:
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <p>{{advert.Details}}</p>
+            </div>
         </div>
     </div>
-    <hr />
+    <div class="card-footer">
+        <div class="row">
+            <div class="col-sm-10">
+                {{advert.Province}}/{{advert.City}}
+            </div>
+            <div class="col-sm-2    ">
+                Price: {{advert.Price | currency:"ZAR":"R":"1.2-2"}}
+            </div>
+        </div>
+    </div>
 </div>
