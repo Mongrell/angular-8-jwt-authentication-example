@@ -1,6 +1,7 @@
 ﻿<!-- TODO: Has to be more responsive -->
+<!-- TODO: Issue with the profile icon display on mobile -->
 <!-- nav -->
-<nav class="mb-1 navbar navbar-expand-lg navbar-dark secondary-color lighten-1">
+<nav class="mb-1 navbar navbar-expand-lg sticky-top navbar-dark secondary-color lighten-1">
     <a class="navbar-brand" routerLink='/home'>Navbar</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navContent"
         aria-controls="navContent" aria-expanded="false" aria-label="Toggle Navigation">
@@ -30,22 +31,14 @@
             </li>
             <!-- Authenticated Feauters -->
             <li class="nav-item dropdown" *ngIf="currentUser">
-                <a class="nav-link dropdown-toggle" id="userSection" data-toggle="dropdown"
-                    aria-haspopup="true" aria-expanded="false">
+                <a class="nav-link dropdown-toggle" id="userSection" data-toggle="dropdown" aria-haspopup="true"
+                    aria-expanded="false">
                     <i class="fas fa-user"></i>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right dropdown-default text-center"
                     aria-labelledby="userSection">
                     <p>Welcome {{currentUser.forenames.trim().split(' ')[0]}}</p>
-                    <hr/>
-                    <a class="dropdown-item" routerLink='/adverts'>My Adverts</a>
-                    <a class="dropdown-item" routerLink='/profile'>My Profile</a>
-                    <a class="dropdown-item" routerLink='/adverts'>Buy A House</a>
-                    <a class="dropdown-item" routerLink='/adverts/0/edit'>Sell A House</a>
-                    <a class="dropdown-item" routerLink='/manage'>Manage My Account</a>
-                    <a class="dropdown-item" routerLink='/sellerProfile'>My Seller Profile</a>
-                    <a class="dropdown-item" routerLink='/favourites'>Favourite Houses</a>
-                    <hr/>
+                    <hr />
                     <a class="dropdown-item" (click)="logout()">Logout</a>
                 </div>
             </li>
@@ -53,21 +46,30 @@
     </div>
 </nav>
 
-<!-- TODO: Think of a better background Color -->
-<!-- main app container -->
-<div class="container">
-    <router-outlet></router-outlet>
+<!-- TODO: Transform Sidebar To A Dropdown For Mobile Users -->
+<!-- TODO: Get Sidebar To Full Widht And Length -->
+<!-- TODO: Add active funtionality to sidebar -->
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-2 text-center" *ngIf="currentUser">
+            <div class="sidebar">
+                <a routerLink='/adverts'>My Adverts</a>
+                <a>My Profile</a>
+                <a>Buy A House</a>
+                <a>Sell A House</a>
+                <a>Manage My Account</a>
+                <a>My Seller Profile</a>
+                <a>Favourite Houses</a>
+            </div>
+        </div>
+        <div class="content" [ngClass]="currentUser ? 'col-sm-10' : 'col-sm-12'">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
 </div>
-
-<!-- TODO: Add More Details -->
-<!-- TODO: Get A Better background color -->
-<!-- credits -->
-<div class="text-center text-white mt-4" style="background-color: rgb(116, 116, 116);">
+<div class="footer">
     <hr />
-    <p>
-        <span>Author: Justin Swart</span>
-        <br />
-        <span>Bitcube Final Practical</span>
-    </p>
+    <p>Author: Justin Swart</p>
+    <p>Bitcube Final Practical</p>
     <hr />
 </div>
