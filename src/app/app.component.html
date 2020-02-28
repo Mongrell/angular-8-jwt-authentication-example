@@ -1,5 +1,4 @@
 ﻿<!-- TODO: Has to be more responsive -->
-<!-- TODO: Issue with the profile icon display on mobile -->
 <!-- nav -->
 <nav class="mb-1 navbar navbar-expand-lg sticky-top navbar-dark secondary-color lighten-1">
     <a class="navbar-brand" routerLink='/home'>Navbar</a>
@@ -35,7 +34,7 @@
                     aria-expanded="false">
                     <i class="fas fa-user"></i>
                 </a>
-                <div class="dropdown-menu dropdown-menu-right dropdown-default text-center"
+                <div class="dropdown-menu dropdown-menu-left dropdown-default text-center"
                     aria-labelledby="userSection">
                     <p>Welcome {{currentUser.forenames.trim().split(' ')[0]}}</p>
                     <hr />
@@ -49,6 +48,7 @@
 <!-- TODO: Transform Sidebar To A Dropdown For Mobile Users -->
 <!-- TODO: Get Sidebar To Full Widht And Length -->
 <!-- TODO: Add active funtionality to sidebar -->
+<!-- TODO: Sidebar And Footer Should Be Fixed -->
 <div class="container-fluid">
     <div class="row">
         <div class="col-sm-2 text-center" *ngIf="currentUser">

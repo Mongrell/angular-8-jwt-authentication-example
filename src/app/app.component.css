@@ -2,7 +2,7 @@
       width           : 100%;
       background-color: #aa66cc;
       height          : 100%;
-      border-radius: 6%;
+      border-radius: 5%;
   }
 
   .sidebar a {
@@ -21,8 +21,7 @@
     div.footer{
         background-color: gray;
         bottom: 0;
-        margin-top: 5px;
-        height: auto;
+        height: 100%;
     }
 
     div.footer p{

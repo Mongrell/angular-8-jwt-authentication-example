@@ -12,6 +12,7 @@ import { HomeComponent } from './home';
 import { LoginComponent } from './login';
 import { RegisterComponent } from './register/register.component';
 import { UserAdvertsComponent } from './userAdverts/user-adverts.component';
+import { EditAdvertComponent } from './editAdverts/edit-advert.component';
 
 @NgModule({
     imports: [
@@ -26,7 +27,8 @@ import { UserAdvertsComponent } from './userAdverts/user-adverts.component';
         HomeComponent,
         LoginComponent,
         RegisterComponent,
-        UserAdvertsComponent
+        UserAdvertsComponent,
+        EditAdvertComponent
     ],
     providers: [
         { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
