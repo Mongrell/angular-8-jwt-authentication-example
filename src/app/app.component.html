@@ -2,8 +2,7 @@
 <!-- nav -->
 <nav class="mb-1 navbar navbar-expand-lg sticky-top navbar-dark secondary-color lighten-1">
     <a class="navbar-brand" routerLink='/home'>Navbar</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navContent"
-        aria-controls="navContent" aria-expanded="false" aria-label="Toggle Navigation">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navContent" aria-controls="navContent" aria-expanded="false" aria-label="Toggle Navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navContent">
@@ -30,12 +29,10 @@
             </li>
             <!-- Authenticated Feauters -->
             <li class="nav-item dropdown" *ngIf="currentUser">
-                <a class="nav-link dropdown-toggle" id="userSection" data-toggle="dropdown" aria-haspopup="true"
-                    aria-expanded="false">
+                <a class="nav-link dropdown-toggle" id="userSection" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <i class="fas fa-user"></i>
                 </a>
-                <div class="dropdown-menu dropdown-menu-left dropdown-default text-center"
-                    aria-labelledby="userSection">
+                <div class="dropdown-menu dropdown-menu-sm-right dropdown-default text-center" aria-labelledby="userSection">
                     <p>Welcome {{currentUser.forenames.trim().split(' ')[0]}}</p>
                     <hr />
                     <a class="dropdown-item" (click)="logout()">Logout</a>
