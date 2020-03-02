@@ -12,7 +12,7 @@
                 <a class="nav-link" routerLink='/home'>Home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" routerLink='/advertsForSale'>Homes For Sale</a>
+                <a class="nav-link">Homes For Sale</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" (click)="sellAHouseClick()">Sell A House</a>
@@ -30,10 +30,17 @@
             <!-- Authenticated Feauters -->
             <li class="nav-item dropdown" *ngIf="currentUser">
                 <a class="nav-link dropdown-toggle" id="userSection" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Welcome {{currentUser.forenames.trim().split(' ')[0]}}
                     <i class="fas fa-user"></i>
                 </a>
-                <div class="dropdown-menu dropdown-menu-sm-right dropdown-default text-center" aria-labelledby="userSection">
-                    <p>Welcome {{currentUser.forenames.trim().split(' ')[0]}}</p>
+                <div class="dropdown-menu dropdown-menu-sm-right dropdown-default text-center links" aria-labelledby="userSection">
+                    <a routerLink='/adverts'>My Adverts</a>
+                    <a>My Profile</a>
+                    <a>Buy A House</a>
+                    <a>Sell A House</a>
+                    <a>Manage My Account</a>
+                    <a>My Seller Profile</a>
+                    <a>Favourite Houses</a>
                     <hr />
                     <a class="dropdown-item" (click)="logout()">Logout</a>
                 </div>
@@ -42,24 +49,9 @@
     </div>
 </nav>
 
-<!-- TODO: Transform Sidebar To A Dropdown For Mobile Users -->
-<!-- TODO: Get Sidebar To Full Widht And Length -->
-<!-- TODO: Add active funtionality to sidebar -->
-<!-- TODO: Sidebar And Footer Should Be Fixed -->
 <div class="container-fluid">
-    <div class="row">
-        <div class="col-sm-2 text-center" *ngIf="currentUser">
-            <div class="sidebar">
-                <a routerLink='/adverts'>My Adverts</a>
-                <a>My Profile</a>
-                <a>Buy A House</a>
-                <a>Sell A House</a>
-                <a>Manage My Account</a>
-                <a>My Seller Profile</a>
-                <a>Favourite Houses</a>
-            </div>
-        </div>
-        <div class="content" [ngClass]="currentUser ? 'col-sm-10' : 'col-sm-12'">
+    <div class="row text-center">
+        <div class="col-sm">
             <router-outlet></router-outlet>
         </div>
     </div>
