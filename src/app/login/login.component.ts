@@ -6,8 +6,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { first } from 'rxjs/operators';
 
 import { AuthenticationService } from '@app/_services';
-import { stringify } from 'querystring';
-import { isNullOrUndefined } from 'util';
+import { EmptyValidator } from '../register/password-match.validator';
 
 @Component({ templateUrl: 'login.component.html' })
 export class LoginComponent implements OnInit {
@@ -31,8 +30,8 @@ export class LoginComponent implements OnInit {
 
     ngOnInit() {
         this.loginForm = this.formBuilder.group({
-            username: ['', Validators.required],
-            password: ['', Validators.required]
+            username: ['', [Validators.required, EmptyValidator]],
+            password: ['', [Validators.required, EmptyValidator]]
         });
 
         // get return url from route parameters or default to '/'
