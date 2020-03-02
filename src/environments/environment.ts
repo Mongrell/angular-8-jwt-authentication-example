@@ -5,9 +5,9 @@
 export const environment = {
     production: false,
     //MSVS setup
-    // apiUrl: 'https://localhost:44348/api'
+    apiUrl: 'https://localhost:44348/api'
     //VS CODE setup
-    apiUrl: 'https://localhost:5001/api'
+    // apiUrl: 'https://localhost:5001/api'
 };
 
 /*

@@ -1,5 +1,4 @@
 <!-- TODO: Better Design And Color Scheme -->
-<!-- TODO: Validation And Validation Messages -->
 <div class="container">
     <div class="card">
         <h5 class="card-header secondary-color white-text text-center py-4"> 
@@ -17,8 +16,20 @@
                             <input type="text"
                                    id="forenamesId"
                                    class="form-control"
-                                   formControlName="forenames"/>
+                                   formControlName="forenames"
+                                   [ngClass]="{'is-invalid': (registerForm.get('forenames').touched || registerForm.get('forenames').dirty) && !registerForm.get('forenames').valid}"/>
                             <label for="forenamesId">Forenames</label>
+                            <span class="invalid-feedback">
+                                <span *ngIf="registerForm.get('forenames').errors?.required">
+                                    This is a required field...
+                                </span>
+                                <span *ngIf="registerForm.get('forenames').errors?.minlength">
+                                    The minimum length for this field is 1 character...
+                                </span>
+                                <span *ngIf="registerForm.get('forenames').errors?.maxlength">
+                                    The maximum length for this field is 100 characters...
+                                </span>
+                            </span>
                         </div>
                     </div>
                 </div>
@@ -28,8 +39,20 @@
                             <input type="text"
                                    id="surnameId"
                                    class="form-control"
-                                   formControlName="surname"/>
+                                   formControlName="surname"
+                                   [ngClass]="{'is-invalid': (registerForm.get('surname').touched || registerForm.get('surname').dirty) && !registerForm.get('surname').valid}"/>
                             <label for="surnameId">Surname</label>
+                            <span class="invalid-feedback">
+                                <span *ngIf="registerForm.get('surname').errors?.required">
+                                    This is a required field...
+                                </span>
+                                <span *ngIf="registerForm.get('surname').errors?.minlength">
+                                    The minimum length for this field is 3 character...
+                                </span>
+                                <span *ngIf="registerForm.get('surname').errors?.maxlength">
+                                    The maximum length for this field is 100 characters...
+                                </span>
+                            </span>
                         </div>
                     </div>
                 </div>
@@ -39,8 +62,23 @@
                             <input type="text"
                                    id="emailId"
                                    class="form-control"
-                                   formControlName="email"/>
+                                   formControlName="email"
+                                   [ngClass]="{'is-invalid': (registerForm.get('email').touched || registerForm.get('email').dirty) && !registerForm.get('email').valid}"/>
                             <label for="emailId">Email</label>
+                            <span class="invalid-feedback">
+                                <span *ngIf="registerForm.get('email').errors?.required">
+                                    This is a required field...
+                                </span>
+                                <span *ngIf="registerForm.get('email').errors?.minlength">
+                                    The minimum length for this field is 6 character...
+                                </span>
+                                <span *ngIf="registerForm.get('email').errors?.maxlength">
+                                    The maximum length for this field is 100 characters...
+                                </span>
+                                <span *ngIf="registerForm.get('email').errors?.email">
+                                    Please enter a valid email address...
+                                </span>
+                            </span>
                         </div>
                     </div>
                 </div>
@@ -49,20 +87,38 @@
                         <input type="password"
                                id="passwordId"
                                class="form-control"
-                               formControlName="password"/>
+                               formControlName="password"
+                               [ngClass]="{'is-invalid': (registerForm.get('passwordGroup.password').touched || registerForm.get('passwordGroup.password').dirty) && !registerForm.get('passwordGroup.password').valid}"/>
                         <label for="passwordId">Password</label>
+                        <span class="invalid-feedback">
+                            <span *ngIf="registerForm.get('passwordGroup.password').errors?.required">
+                                This is a required field...
+                            </span>
+                            <span *ngIf="registerForm.get('passwordGroup.password').errors?.minlength">
+                                The minimum length for this field is 8 character...
+                            </span>
+                            <span *ngIf="registerForm.get('passwordGroup.password').errors?.maxlength">
+                                The maximum length for this field is 100 characters...
+                            </span>
+                        </span>
                     </div>
                     <div class="md-form">
                         <input type="password"
                                id="confirmPasswordId"
                                class="form-control"
-                               formControlName="confirmPassword"/>
+                               formControlName="confirmPassword"
+                               [ngClass]="{'is-invalid': registerForm.get('passwordGroup').errors || (registerForm.get('passwordGroup.confirmPassword').touched || registerForm.get('passwordGroup.confirmPassword').dirty) && !registerForm.get('passwordGroup.confirmPassword').valid}"/>
                         <label for="confirmPasswordId">Confirm Password</label>
+                        <span class="invalid-feedback">
+                            <span *ngIf="registerForm.get('passwordGroup').errors?.match">
+                                Passwords do not match...
+                            </span>
+                        </span>
                     </div>
                 </div>
                 <button class="col-10 btn btn-outline-secondary"
                         type="submit"
-                        [title]="registerForm.valid ? 'Register' : 'Disabled ubtil data is valid'"
+                        [title]="registerForm.valid ? 'Register' : 'Disabled until data is valid'"
                         [disabled]="!registerForm.valid">
                     Register
                 </button>

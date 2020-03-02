@@ -2,10 +2,11 @@
 // TODO: Guard For User Exit Faults
 // TODO: Auto Login And Redirect To My Adverts (Maybe)
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { User, IUserRegistraion } from '../_models/user';
+import { IUserRegistraion } from '../_models/user';
 import { UserService } from '../_services/user.service';
+import { passwordMatch, EmptyValidator } from './password-match.validator';
 
 @Component({
     selector: 'app-register',
@@ -23,24 +24,24 @@ export class RegisterComponent implements OnInit{
 
     ngOnInit(){
         this.registerForm = this.fb.group({
-            forenames: [''],
-            surname: [''],
-            email: [''],
+            forenames: ['', [Validators.required, EmptyValidator, Validators.minLength(1), Validators.maxLength(100)]],
+            surname: ['', [Validators.required, EmptyValidator, Validators.minLength(3), Validators.maxLength(100)]],
+            email: ['', [Validators.required, EmptyValidator, Validators.minLength(6), Validators.maxLength(100), Validators.email]],
             passwordGroup: this.fb.group({
-                password: [''],
-                confirmPassword: ['']
-            })
+                password: ['', [Validators.required, EmptyValidator, Validators.minLength(8), Validators.maxLength(100)]],
+                confirmPassword: ['', Validators.required]
+            }, {validator: passwordMatch})
         });
     }
 
     onSubmission(){
         if(this.registerForm.valid){
             this.user = {
-                Forenames: this.registerForm.get('forenames').value,
-                Surname: this.registerForm.get('surname').value,
-                Username: this.registerForm.get('email').value,
-                Password: this.registerForm.get('passwordGroup.password').value,
-                ConfirmPassword: this.registerForm.get('passwordGroup.confirmPassword').value
+                Forenames: this.registerForm.get('forenames').value.trim(),
+                Surname: this.registerForm.get('surname').value.trim(),
+                Username: this.registerForm.get('email').value.trim(),
+                Password: this.registerForm.get('passwordGroup.password').value.trim(),
+                ConfirmPassword: this.registerForm.get('passwordGroup.confirmPassword').value.trim()
             }
 
             this.userService.create(this.user).subscribe({
