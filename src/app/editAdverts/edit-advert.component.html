@@ -1,53 +1,65 @@
-<!-- TODO: Validation -->
-<div class="card">
-    <h5 class="card-header secondary-color white-text text-center py-4">
-        <strong>{{pageTitle}}</strong>
-    </h5>
-
-    <div class="card-body px-lg-5 pt-0">
-        <form class="text-center" novalidate (ngSubmit)="onSubmission()" [formGroup]="editForm">
-            <div class="form-row">
-                <div class="col">
-                    <div class="md-form">
-                        <input type="text" id="headlineId" class="form-control" formControlName="headline" />
-                        <label for="headlineId">Headline</label>
+<div class="container">
+    <div class="card">
+        <h5 class="card-header secondary-color white-text text-center py-4">
+            <strong>{{pageTitle}}</strong>
+        </h5>
+        <div class="card-body px-lg-5 pt-0">
+            <form class="text-center" novalidate (ngSubmit)="onSubmission()" [formGroup]="editForm">
+                <!-- <div class="form-row">
+                    <div class="col">
+                        <div class="md-form">
+                            <input type="text" id="headlineId" class="form-control" formControlName="headline" />
+                            <label for="headlineId">
+                                Headline
+                            </label>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="form-row">
-                <div class="col">
-                    <div class="md-form">
-                        <textarea class="md-textarea form-control" id="detailsId" rows="5" formControlName="details"></textarea>
-                        <label for="detailsId">Details</label>
-                      </div>
-                </div>
-            </div>
-            <div class="form-row">
-                <div class="col">
-                    <div class="md-form">
-                        <select class="browser-default custom-select" formControlName="province">
-                            <option selected>Select A Province</option>
-                            <!-- TODO: Figure out how to populate select dynamically -->
-                        </select>
+                <div class="form-row">
+                    <div class="col">
+                        <div class="md-form">
+                            <textarea id="detailsId" class="md-textarea form-control" rows=3></textarea>
+                            <label for="detailsId">
+                                Details
+                            </label>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div formGroupName="passwordGroup">
-                <div class="md-form">
-                    <input type="password" id="passwordId" class="form-control" formControlName="password" />
-                    <label for="passwordId">Password</label>
+                <div formGroupName="areaGroup"> -->
+                    <div class="form-row">
+                        <div class="col">
+                            <div class="md-form">
+                                <select class="browser-default custom-select" formControlName="province" (change)="onProvinceChange($event)">
+                                    <option value="" disabled>Choose A Province</option>
+                                    <option *ngFor="let province of provinces" [ngValue]="province">{{province.name}}
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <div class="form-row">
+                        <div class="col">
+                            <div class="md-form">
+                                <select class="browser-default custom-select" formControlName="city">
+                                    <option selected>Choose A City</option>
+                                    <option *ngFor="let city of cities" value="city.id">{{city.name}}</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="md-form">
-                    <input type="password" id="confirmPasswordId" class="form-control"
-                        formControlName="confirmPassword" />
-                    <label for="confirmPasswordId">Confirm Password</label>
-                </div>
-            </div>
-            <button class="col-4 btn btn-outline-secondary" type="submit"
-                [title]="editForm.valid ? 'Register' : 'Disabled ubtil data is valid'"
-                [disabled]="!editForm.valid">
-                Save
-            </button>
-        </form>
+                <div class="form-row">
+                    <div class="col">
+                        <div class="md-form">
+                            <input type="number" 
+                                   id="priceId"
+                                   class="form-control"
+                                   formControlName="price"/>
+                            <label for="priceId">Price</label>
+                        </div>
+                    </div>
+                </div> -->
+            </form>
+        </div>
     </div>
 </div>
