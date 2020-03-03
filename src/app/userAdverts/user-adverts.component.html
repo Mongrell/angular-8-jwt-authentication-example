@@ -1,60 +1,54 @@
-<!-- TODO: Get images for the properties -->
-<!-- TODO: Fix Stylings -->
-<!-- TODO: Pagination for later stages -->
-<h1 class="text-center">Below Are All The Adverts You Posted</h1>
-<hr />
-<div class="card" style="margin: 15px;" *ngFor="let advert of adverts">
-    <div class="card-header" style="background-color: #6099f0;">
-        <div class="row">
-            <div class="col-sm-4 text-left">
-                Status: {{advert.State}}
+<h3>{{pageStatus}}</h3>
+<div *ngIf="adverts">
+    <div class="card" style="margin: 15px;" *ngFor="let advert of adverts">
+        <div class="card-header" style="background-color: #6099f0;">
+            <thead class="row">
+                <th class="col-sm-2">Status: {{advert.state}}</th>
+                <th class="col-sm">{{advert.headline}}</th>
+                <th class="col-sm-2">
+                    <ul class="nav text-right" id="actions">
+                        <li class="nav-item dropdown" style="border-radius: 50%;">
+                            <a class="nav-link dropdown-toggle" id="userSection" data-toggle="dropdown" aria-haspopup="true"
+                                aria-expanded="false">
+                                Actions
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-left dropdown-default" aria-labelledby="userSection" style="border-radius: 10%;">
+                                <a class="dropdown-item" routerLink='/adverts/0/edit'>Edit</a>
+                                <a class="dropdown-item">Hide Advert</a>
+                                <a class="dropdown-item">Show Advert</a>
+                                <a class="dropdown-item">Delete Advert</a>
+                            </div>
+                        </li>
+                    </ul>
+                </th>
+            </thead>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-sm-12 text-center">
+                    Images Will Be Added Here Later
+                </div>
             </div>
-            <div class="col-sm text-left">
-                <h3>{{advert.Headline}}</h3>
+            <hr />
+            <div class="row">
+                <div class="col-sm-12">
+                    <strong><em>Details:</em></strong>
+                </div>
             </div>
-            <div class="col-sm-2">
-                <ul class="nav text-right" id="actions">
-                    <li class="nav-item dropdown" style="border-radius: 50%;">
-                        <a class="nav-link dropdown-toggle" id="userSection" data-toggle="dropdown" aria-haspopup="true"
-                            aria-expanded="false">
-                            Actions
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-left dropdown-default" aria-labelledby="userSection" style="border-radius: 10%;">
-                            <a class="dropdown-item" routerLink='/adverts/0/edit'>Edit</a>
-                            <a class="dropdown-item">Hide Advert</a>
-                            <a class="dropdown-item">Show Advert</a>
-                            <a class="dropdown-item">Delete Advert</a>
-                        </div>
-                    </li>
-                </ul>
+            <div class="row">
+                <div class="col-sm-12">
+                    <p>{{advert.details}}</p>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="card-body">
-        <div class="row">
-            <div class="col-sm-12 text-center">
-                Images Will Be Added Here Later
-            </div>
-        </div>
-        <hr />
-        <div class="row">
-            <div class="col-sm-12">
-                <strong><em>Details:</em></strong>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-sm-12">
-                <p>{{advert.Details}}</p>
-            </div>
-        </div>
-    </div>
-    <div class="card-footer">
-        <div class="row">
-            <div class="col-sm-10 text-left">
-                {{advert.Province}}/{{advert.City}}
-            </div>
-            <div class="col-sm-2 text-right">
-                Price: {{advert.Price | currency:"ZAR":"R":"1.2-2"}}
+        <div class="card-footer">
+            <div class="row">
+                <div class="col-sm-10 text-left">
+                    {{advert.province}}/{{advert.city}}
+                </div>
+                <div class="col-sm-2 text-right">
+                    Price: {{advert.price | currency:"ZAR":"R":"1.2-2"}}
+                </div>
             </div>
         </div>
     </div>

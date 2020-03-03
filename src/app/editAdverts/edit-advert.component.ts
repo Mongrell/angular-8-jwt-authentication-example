@@ -77,7 +77,7 @@ export class EditAdvertComponent implements OnInit, OnDestroy{
 
     onSaveComplete(){
         this.editForm.reset();
-        this.router.navigate(['/home']);
+        this.router.navigate(['/adverts']);
     }
 
     ngOnDestroy(){

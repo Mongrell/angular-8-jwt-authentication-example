@@ -98,7 +98,6 @@
                                    formControlName="price"
                                    min="10000"
                                    max="100000000"
-                                   placeholder="10000"
                                    [ngClass]="{'is-invalid': (editForm.get('price').touched || editForm.get('price').dirty) && !editForm.get('price').valid}"/>
                             <label for="priceId">Price</label>
                             <span class="invalid-feedback">
