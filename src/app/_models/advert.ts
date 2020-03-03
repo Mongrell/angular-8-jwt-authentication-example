@@ -9,6 +9,14 @@ export class Advert{
     State: string;
 }
 
+export class IRegisterAdvert{
+    Headline: string;
+    Province: string;
+    City: string;
+    Details: string;
+    Price: number;
+}
+
 export const TestAdverts: Advert[] = [
     {
         Id: 1,

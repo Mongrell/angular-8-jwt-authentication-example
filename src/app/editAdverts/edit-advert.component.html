@@ -5,60 +5,122 @@
         </h5>
         <div class="card-body px-lg-5 pt-0">
             <form class="text-center" novalidate (ngSubmit)="onSubmission()" [formGroup]="editForm">
-                <!-- <div class="form-row">
+                <div class="form-row">
                     <div class="col">
                         <div class="md-form">
-                            <input type="text" id="headlineId" class="form-control" formControlName="headline" />
+                            <input type="text" 
+                                   id="headlineId" 
+                                   class="form-control" 
+                                   formControlName="headline"
+                                   [ngClass]="{'is-invalid': (editForm.get('headline').touched || editForm.get('headline').dirty) && !editForm.get('headline').valid}"/>
                             <label for="headlineId">
                                 Headline
                             </label>
+                            <span class="invalid-feedback">
+                                <span *ngIf="editForm.get('headline').errors?.required">
+                                    This is a required field...
+                                </span>
+                                <span *ngIf="editForm.get('headline').errors?.minlength">
+                                    This value needs to be 10 characters or more...
+                                </span>
+                                <span *ngIf="editForm.get('headline').errors?.maxlength">
+                                    This value needs to be less than 100 characters...
+                                </span>
+                            </span>
                         </div>
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="col">
                         <div class="md-form">
-                            <textarea id="detailsId" class="md-textarea form-control" rows=3></textarea>
+                            <textarea id="detailsId" 
+                                      class="md-textarea form-control" 
+                                      rows=3 
+                                      formControlName="details"
+                                      [ngClass]="{'is-invalid': (editForm.get('details').touched || editForm.get('details').dirty) && !editForm.get('details').valid}"></textarea>
                             <label for="detailsId">
                                 Details
                             </label>
+                            <span class="invalid-feedback">
+                                <span *ngIf="editForm.get('details').errors?.required">
+                                    This is a required field...
+                                </span>
+                                <span *ngIf="editForm.get('details').errors?.minlength">
+                                    This value needs to be 10 characters or more...
+                                </span>
+                                <span *ngIf="editForm.get('details').errors?.maxlength">
+                                    This value needs to be less than 1000 characters...
+                                </span>
+                            </span>
                         </div>
                     </div>
                 </div>
-                <div formGroupName="areaGroup"> -->
                     <div class="form-row">
                         <div class="col">
                             <div class="md-form">
-                                <select class="browser-default custom-select" formControlName="province" (change)="onProvinceChange($event)">
+                                <select class="browser-default custom-select" 
+                                        formControlName="province"
+                                        [ngClass]="{'is-invalid': (editForm.get('province').touched || editForm.get('province').dirty) && !editForm.get('province').valid}">
                                     <option value="" disabled>Choose A Province</option>
-                                    <option *ngFor="let province of provinces" [ngValue]="province">{{province.name}}
-                                    </option>
+                                    <option *ngFor="let province of provinces" [ngValue]="province.name">{{province.name}}</option>
                                 </select>
+                                <span class="invalid-feedback">
+                                    <span *ngIf="editForm.get('province').errors?.required">
+                                        This is a required field...
+                                    </span>
+                                </span>
                             </div>
                         </div>
                     </div>
-                    <!-- <div class="form-row">
+                    <div class="form-row" *ngIf="cities">
                         <div class="col">
                             <div class="md-form">
-                                <select class="browser-default custom-select" formControlName="city">
-                                    <option selected>Choose A City</option>
-                                    <option *ngFor="let city of cities" value="city.id">{{city.name}}</option>
+                                <select class="browser-default custom-select" 
+                                        formControlName="city"
+                                        [ngClass]="{'is-invalid': (editForm.get('city').touched || editForm.get('city').dirty) && !editForm.get('city').valid}">
+                                    <option value="" disabled>Choose A City</option>
+                                    <option *ngFor="let city of cities" [ngValue]="city.name">{{city.name}}</option>
                                 </select>
+                                <span class="invalid-feedback">
+                                    <span *ngIf="editForm.get('city').errors?.required">
+                                        This is a required field...
+                                    </span>
+                                </span>
                             </div>
                         </div>
                     </div>
-                </div>
                 <div class="form-row">
                     <div class="col">
                         <div class="md-form">
                             <input type="number" 
                                    id="priceId"
                                    class="form-control"
-                                   formControlName="price"/>
+                                   formControlName="price"
+                                   min="10000"
+                                   max="100000000"
+                                   placeholder="10000"
+                                   [ngClass]="{'is-invalid': (editForm.get('price').touched || editForm.get('price').dirty) && !editForm.get('price').valid}"/>
                             <label for="priceId">Price</label>
+                            <span class="invalid-feedback">
+                                <span *ngIf="editForm.get('price').errors?.required">
+                                    This is a required field...
+                                </span>
+                                <span *ngIf="editForm.get('price').errors?.min">
+                                    The price needs to be more than 10000...
+                                </span>
+                                <span *ngIf="editForm.get('price').errors?.max">
+                                    This price needs to be less than 100000000...
+                                </span>
+                            </span>
                         </div>
                     </div>
-                </div> -->
+                </div>
+                <button class="col-10 btn btn-outline-secondary"
+                        type="submit"
+                        [title]="editForm.valid ? 'Create' : 'Disabled until data is valid'"
+                        [disabled]="!editForm.valid">
+                    Create
+                </button>
             </form>
         </div>
     </div>
