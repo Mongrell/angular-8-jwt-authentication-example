@@ -14,6 +14,10 @@ export class AdvertService{
 
     }
 
+    public GetAdvert(id: number): Observable<Advert>{
+        return this.http.get<Advert>(`${this.apiUrl}/adverts/${id}`)
+    }
+
     public GetAllAdverts(): Observable<Advert[]>{
         return this.http.get<Advert[]>(`${this.apiUrl}/adverts`)
     }

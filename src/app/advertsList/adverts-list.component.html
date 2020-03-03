@@ -10,3 +10,25 @@
         </div>
     </div>
 </div>
+<div *ngIf="adverts">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th class="text-left" scope="col">Headline</th>
+                <th scope="col">Province</th>
+                <th scope="col">City</th>
+                <th scope="col">Price</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let advert of adverts">
+                <td class="text-left">{{advert.headline}}</td>
+                <td>{{advert.province}}</td>
+                <td>{{advert.city}}</td>
+                <td>{{advert.price | currency:'ZAR':'R':'1.2-2'}}</td>
+                <td><a class="btn-sm btn-outline-secondary" [routerLink]="['/adverts', advert.id]">More Details</a></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

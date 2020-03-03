@@ -1,5 +1,5 @@
 export class Advert{
-    Id: number;
+    id: number;
     userId: number;
     headline: string;
     province: string;

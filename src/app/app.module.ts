@@ -14,6 +14,7 @@ import { RegisterComponent } from './register/register.component';
 import { UserAdvertsComponent } from './userAdverts/user-adverts.component';
 import { EditAdvertComponent } from './editAdverts/edit-advert.component';
 import { AdvertListComponent } from './advertsList/adverts-list.component';
+import { AdvertDetailComponent } from './advertDetails/advert.detail.component';
 
 @NgModule({
     imports: [
@@ -30,7 +31,8 @@ import { AdvertListComponent } from './advertsList/adverts-list.component';
         RegisterComponent,
         UserAdvertsComponent,
         EditAdvertComponent,
-        AdvertListComponent
+        AdvertListComponent,
+        AdvertDetailComponent
     ],
     providers: [
         { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },

@@ -1,0 +1,22 @@
+<ng-container *ngIf="advert">
+    <hr />
+    <div class="row">
+        <div class="col-sm-4">
+            <img class="card-img" style="max-width: 500px; max-height: 500px;" src="../../assets/Placeholder_2.jpg" />
+        </div>
+        <div class="col-sm align-middle">
+            <h1>{{advert.headline}}</h1>
+            <h4><strong>Location:</strong> {{advert.province}}/{{advert.city}}</h4>
+            <h4><strong>Price:</strong> {{advert.price | currency:'ZAR':'R':'1.2-2'}}</h4>
+        </div>
+    </div>
+    <hr />
+    <div class="card">
+        <div class="card-header text-center" style="background-color: #aa66cc;">
+            <h1>Property Details</h1>
+        </div>
+        <div class="card-body">
+            <p>{{advert.details}}</p>
+        </div>
+    </div>
+</ng-container>

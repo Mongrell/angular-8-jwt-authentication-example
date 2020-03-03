@@ -7,6 +7,7 @@ import { RegisterComponent } from './register/register.component';
 import { UserAdvertsComponent } from './userAdverts/user-adverts.component';
 import { EditAdvertComponent } from './editAdverts/edit-advert.component';
 import { AdvertListComponent } from './advertsList/adverts-list.component';
+import { AdvertDetailComponent } from './advertDetails/advert.detail.component';
 
 const routes: Routes = [
     { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -14,6 +15,7 @@ const routes: Routes = [
     { path: 'register', component: RegisterComponent },
     { path: 'login', component: LoginComponent },
     { path: 'adverts', component: UserAdvertsComponent, canActivate: [AuthGuard] },
+    { path: 'adverts/:id', component: AdvertDetailComponent },
     { path: 'adverts/:id/edit', component: EditAdvertComponent, canActivate: [AuthGuard] },
     { path: 'sales', component: AdvertListComponent},
 

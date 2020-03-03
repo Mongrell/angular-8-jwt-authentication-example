@@ -18,3 +18,11 @@ export interface IUserRegistraion{
   Password: string;
   ConfirmPassword: string;
 }
+
+export interface IUserUpdate{
+  Forename: string;
+  Lastname: string;
+  Username: string;
+  Password: string;
+  newPassword: string;
+}
